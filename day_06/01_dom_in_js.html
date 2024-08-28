@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit1.</h2>
+        <h2>Lorem ipsum dolor sit2.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+<script>
+    // // Target Elements
+
+    // console.log(document.getElementById("title"));
+
+    // console.log(document.getElementById("title").id);
+    // console.log(document.getElementById("title").getAttribute('id'));
+
+    // console.log(document.getElementById("title").className);
+    // console.log(document.getElementById("title").getAttribute('class'));
+
+    // console.log(document.getElementById("title").setAttribute('class', 'heading test'));
+
+    // const title = document.getElementById("title");
+    // console.log(title);
+    // title.style.backgroundColor = 'orange';
+    // title.style.color = 'green';
+    // title.style.borderRadius = '5px';
+
+    // console.log(title.textContent); // returns all the text
+    // console.log(title.innerText); // returns visible text
+    // console.log(document.getElementById("title").innerHTML); // returns the inner HTML of the element including html tags
+    
+    // console.log(document.querySelector('#title'));
+    // console.log(document.querySelector('.heading'));
+    // console.log(document.querySelector('input[type="password"]'));
+    // console.log(document.querySelector('h2'));
+    // console.log(document.querySelectorAll('h2'));
+    // console.log(document.querySelector('ul'));
+
+    const myul = document.querySelector('ul');
+    myul.querySelector('li');
+    myul.querySelector('li').style.background = 'green';
+    myul.querySelector('li').style.padding = '4px';
+    myul.querySelector('li').innerText = "five";
+
+    const tempLiList = document.querySelectorAll('li')
+
+    // tempLiList.style.color = "red" // ouput: error // cant do this becase tempLiList is a NodeList
+    tempLiList[1].style.color = "red" // can access individual NodeList and do the change on that
+
+    tempLiList[3].style.backgroundColor = "blue"
+
+    const myH1 = document.querySelectorAll('h1')
+    // myH1.style.color = 'red' // ouput: error
+    myH1[0].style.color = 'red'
+
+    // // can use forEach loop for NodeList too // But can't use map filter reduce because those are the array mehtods
+    // // to use map with NodeList first convert it to an array
+    // tempLiList.forEach( (item) => {
+    //     item.style.backgroundColor = "purple"
+    // })
+
+    // HTMLCollection
+    const myHTMLColl = document.getElementsByClassName('list-item');
+
+    // // this code will show error because we can't use foreach with HTMLCollection
+    // myHTMLColl.forEach( (item) => {
+    //     item.style.backgroundColor = "purple"
+    // })
+
+    // Convert HTMLCollection to an array
+
+    const myConvertedHTMLColl = Array.from(myHTMLColl);
+
+    // Now, after converting the HTMLCollection to an array we can perform the forEach and other array methods like map, filter, reduce etc.
+    myConvertedHTMLColl.forEach( (item) => {
+        item.style.backgroundColor = "purple"
+    })
+     
+</script>
+</html>
